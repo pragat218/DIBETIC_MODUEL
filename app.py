@@ -6,24 +6,27 @@ import joblib
 model = joblib.load("xgboost_model.pkl")
 scaler = joblib.load("scaler.pkl")
 
-st.set_page_config(page_title="Diabetes Prediction", layout="centered")
+st.set_page_config(
+    page_title="Diabetes Prediction",
+    layout="centered"
+)
 
 st.title("🩺 Diabetes Prediction App")
 st.write("Enter patient details to predict diabetes")
 
-# Create two columns
+# Layout: 2 columns
 col1, col2 = st.columns(2)
 
 features = []
 
-# Left side inputs (4)
+# Left side inputs
 with col1:
     features.append(st.number_input("Pregnancies", value=None))
     features.append(st.number_input("Glucose", value=None))
     features.append(st.number_input("BloodPressure", value=None))
     features.append(st.number_input("SkinThickness", value=None))
 
-# Right side inputs (4)
+# Right side inputs
 with col2:
     features.append(st.number_input("Insulin", value=None))
     features.append(st.number_input("BMI", value=None))
@@ -38,7 +41,7 @@ st.markdown(
         background-color: red;
         color: white;
         font-size: 18px;
-        padding: 10px 24px;
+        padding: 10px 26px;
         border-radius: 8px;
     }
     </style>
